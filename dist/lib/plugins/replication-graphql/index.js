@@ -34,7 +34,6 @@ var _helper = require("./helper");
 Object.keys(_helper).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _helper[key]) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
@@ -48,7 +47,6 @@ var _crawlingCheckpoint = require("./crawling-checkpoint");
 Object.keys(_crawlingCheckpoint).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _crawlingCheckpoint[key]) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
@@ -70,7 +68,6 @@ var _graphqlSchemaFromRxSchema = require("./graphql-schema-from-rx-schema");
 Object.keys(_graphqlSchemaFromRxSchema).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _graphqlSchemaFromRxSchema[key]) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
@@ -84,7 +81,6 @@ var _queryBuilderFromRxSchema = require("./query-builder-from-rx-schema");
 Object.keys(_queryBuilderFromRxSchema).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _queryBuilderFromRxSchema[key]) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
@@ -606,12 +602,12 @@ var RxGraphQLReplicationState = /*#__PURE__*/function () {
                 return function (_x2) {
                   return _ref3.apply(this, arguments);
                 };
-              }()).filter(function (doc) {
-                return doc;
-              }));
+              }()));
 
             case 5:
-              changesWithDocs = _context7.sent;
+              changesWithDocs = _context7.sent.filter(function (doc) {
+                return doc;
+              });
               lastSuccessfullChange = null;
               _context7.prev = 7;
               i = 0;
